@@ -2,9 +2,9 @@ const fs = require("fs");
 const http = require('http');
 const PORT = 818;
 
-var data = fs.readFileSync(__dirname+"/api.json", "utf-8");
+var data = fs.readFileSync(__dirname + "/api.json", "utf-8");
 data = JSON.parse(data);
-var htmlFile = fs.readFileSync(__dirname+"/index.html", "utf-8");
+var htmlFile = fs.readFileSync(__dirname + "/index.html", "utf-8");
 
 
 var replaceData = (htmlData, data) => {
@@ -48,7 +48,7 @@ const server = http.createServer((req, res) => {
     else {
 
         var urlArray = url.split("/?country=")
-
+        console.log(urlArray)
         var org_search = ((urlArray[1]) + "").replaceAll("%20", " ");
         var org_search = ((urlArray[1]) + "").replaceAll("+", " ");
 
