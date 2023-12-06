@@ -2,9 +2,9 @@ const fs = require("fs");
 const http = require('http');
 const PORT = 818;
 
-var data = fs.readFileSync("api.json", "utf-8");
+var data = fs.readFileSync(__dirname+"/api.json", "utf-8");
 data = JSON.parse(data);
-var htmlFile = fs.readFileSync("index.html", "utf-8");
+var htmlFile = fs.readFileSync(__dirname+"/index.html", "utf-8");
 
 
 var replaceData = (htmlData, data) => {
@@ -23,7 +23,7 @@ var replaceData = (htmlData, data) => {
     newData = newData.replace("{%StartOfWeek%}", data.startOfWeek)
     newData = newData.replace("{%FlagImportance%}", data.flags.alt)
     newData = newData.replace("{%FlagUrl%}", data.flags.png)
-    newData = newData.replace("style='visibility:hidden;'", "style='visibily:visible'")
+    newData = newData.replace("style='visibility:hidden;'", "style='visibily:visible;' ")
 
 
     return newData;
