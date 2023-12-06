@@ -37,30 +37,21 @@ var ErrorMsg = (a) => {
 const server = http.createServer((req, res) => {
     var url = req.url;
     console.log(url)
-
     var found = 0;
-
-    if (url == "/") {
-        res.write(htmlFile);
-        res.end();
-    }
-
-    else {
-
-        var urlArray = url.split("/?country=")
-        console.log(urlArray)
-        var org_search = ((urlArray[1]) + "").replaceAll("%20", " ");
-        var org_search = ((urlArray[1]) + "").replaceAll("+", " ");
-
-        console.log((urlArray[1]) + "ok")
-        console.log(org_search.toLowerCase())
-
+    if (url.includes("?country=")) {
+        url = url.split("?country=")[1]
+        if (url.includes("%20")) {
+            url = url.replace("%20", " ")
+        }
+        if (url.includes("+")) {
+            url = url.replace("+", " ");
+        }
+        console.log(url)
         for (var i = 0; i <= 249; i++) {
 
-            if (data[i].name.common.toLowerCase() == org_search.toLowerCase()) {
+            if (data[i].name.common.toLowerCase() == url.toLowerCase()) {
                 var datanew = replaceData(htmlFile, data[i]);
                 res.write(datanew);
-
 
                 res.end();
                 console.log(data[i])
@@ -75,8 +66,13 @@ const server = http.createServer((req, res) => {
             res.write(Errormsg);
             res.end();
         }
-
     }
+    else  {
+        res.write(htmlFile);
+        res.end();
+    }
+
+   
 });
 
 server.listen(PORT, "127.0.0.1", () => {
