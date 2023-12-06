@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Get Country Information</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(176, 194, 210);
+
+        }
+
+        .search_div {
+            margin: 50px auto;
+            width: 500px;
+            height: 60px;
+            /* background-color: rgb(151, 151, 155); */
+            box-shadow: 1px 1px 1px 1px black;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+
+
+        }
+
+        .search_div form .search_input {
+            padding: 10px;
+            width: 300px;
+
+            height: 46px;
+
+        }
+
+
+        .search_div form .search_btn {
+            width: 180px;
+            height: 46px;
+        }
+
+        .main_container {
+            
+            width: 80%;
+            border-radius: 20px;
+            margin: 0 auto;
+            box-shadow: 2px 2px 20px 10px black;
+            background-color: blueviolet;
+            display: flex;
+        }
+
+        .flag {
+            width: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flag img {
+            width: 80%;
+            height: 300px;
+        }
+
+        .info {
+
+            width: 50%;
+            padding: 40px 0px;
+
+        }
+
+        table {
+            width: 90%;
+
+            color: rgb(255, 255, 255);
+
+
+        }
+
+        .tr_class {
+            border: 1px solid rgb(243, 159, 5);
+            margin: 30px;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            text-transform: capitalize;
+
+        }
+
+        .tr_class td {
+            border: 10px solid rgba(243, 160, 5, 0);
+            margin: 0px;
+        }
+
+        .tr_class td:nth-child(2) {
+            color: rgb(241, 244, 241);
+        }
+
+        @media screen and (max-width : 800px) {
+            .main_container {
+                width: 80%;
+                border-radius: 20px;
+                margin: 0 auto;
+                box-shadow: 2px 2px 20px 10px black;
+                background-color: blueviolet;
+                display: block;
+
+            }
+
+            .flag {
+                width: 100%;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .flag img {
+                width: 80%;
+                height: 250px;
+            }
+
+            .info {
+
+                width: 100%;
+                padding: 40px 0px;
+
+            }
+
+            table {
+                width: 90%;
+                margin: 0 auto;
+                color: rgb(255, 255, 255);
+            }
+
+
+        }
+
+        @media screen and (max-width:360px){
+            .search_div {
+            margin: 10px 0;
+            width: 100%;
+            height: 60px;
+            /* background-color: rgb(151, 151, 155); */
+            box-shadow: 1px 1px 1px 1px black;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+
+
+        }
+
+        .search_div form .search_input {
+            padding: 10px;
+            width: 240px;
+
+            height: 46px;
+
+        }
+
+
+        .search_div form .search_btn {
+            width: 75px;
+            height: 46px;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search_div">
+        <form>
+            <input autofocus type="text" class="search_input" name="country" placeholder="Enter Name Here" />
+            <input type="submit" class="search_btn" value="Search" />
+        </form>
+    </div>
+    <div
+        style='color: red;visibility:hidden; width: 300px; background-color: lightpink;padding: 10px;border-radius: 10px;margin: 0 auto ;'>
+        <p style="text-align: center;font-size: 20px;">Countery Name Not Match</p>
+    </div>
+    <div class="main_container"  style='visibility:hidden;'>
+        <div class="flag">
+            <img src="{%FlagUrl%}" />
+        </div>
+        <div class="info">
+            <table>
+                <tbody>
+                    <tr class="tr_class">
+                        <td>Name :</td>
+                        <td>{%CountryName%} </td>
+                    </tr>
+
+                    <tr class="tr_class">
+                        <td> official Name :</td>
+                        <td>{%OfficialName%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Capital :</td>
+                        <td>{%Capital%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Independent</td>
+                        <td> {%Independent%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Contients</td>
+                        <td> {%Contients%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Regien</td>
+                        <td> {%Regien%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>SubRegion</td>
+                        <td> {%SubRegien%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>LAt-Long</td>
+                        <td> {%Lat_Long%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Area</td>
+                        <td> {%Area%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Population</td>
+                        <td> {%Population%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>TimeZone</td>
+                        <td> {%TimeZone%}</td>
+                    </tr>
+                    <tr class="tr_class">
+                        <td>Start OF THe Week</td>
+                        <td>{%StartOfWeek%}</td>
+                    </tr>
+                    <tr class="tr_class flag_imp">
+                        <td>Flag Importance</td>
+                        <td> {%FlagImportance%}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+</body>
+
+</html>
